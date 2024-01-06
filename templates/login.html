@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>ADOB Blockchain Portal</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+	{% for message in get_flashed_messages() %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		 {{ message }}
+		 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+	{% endfor %}
+	<h1> Please Login</h1>
+	<div class="shadow p-3 mb-5 bg-body rounded">
+		<form method="POST" action="">
+			{{form.hidden_tag()}}
+			{{ form.username(class="form-control form-control-sm") }}
+			<br>
+			{{ form.password(class="form-control form-control-sm") }}
+			<br>
+			{{ form.submit(class="btn btn-secondary") }}
+			<br>
+		</form>
+	</div>
+	<a href="{{url_for('register')}}"> Don't have an account? Sign up</a>
+</div>
+{% endblock %}

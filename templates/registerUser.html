@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> User Registration </title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+	<h2> User Registration </h2> 
+	<input type="text" name="firstName" id="firstName"></br>
+		<input type="text" name="surname" id="surname"></br>
+		<input type="email" name="emailAddress" id="emailAddress"></br>
+		<input type="text" name="jobTitle" id="jobTitle"></br>
+		<input type="text" name="organisationName" id="organisationName"></br>
+		<select class="form-select form-select-sm" name="userType" id="userType" aria-label=".form-select-sm">
+			<option value="Requester" selected>Request document verification </option></br>
+			<option value="Verifier">Ernest & Young Auditor</option> 
+		</select> 
+		<input type="password" name="password" id="password"></br>
+		<input type="submit" value="Register">
+	</form>
+</div>
+{% endblock %}

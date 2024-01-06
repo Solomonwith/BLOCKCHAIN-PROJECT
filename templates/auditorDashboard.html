@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css') }}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	
+	<title>Auditors' Dashboard </title>
+</head>
+<body>
+<div class="container-fluid">
+  <!-- Content here -->
+	
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+			<a class="navbar-brand" href="#"> Auditors' Dashboard</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  <div class="navbar-nav">
+				<a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+			  </div>
+			</div>
+	  </div>
+	</nav>
+</div>
+{% block body %}
+	<div class="container">
+			<p class="text-center">Welcome to the Auditor's Dashboard</p>
+			<div class="shadow p-3 mb-5 bg-body rounded">
+				{% for message in get_flashed_messages() %}
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+					 {{ message }}
+		 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				{% endfor %}
+					<form method="POST">				
+						{{ form.hidden_tag() }} <!-- this creates our CSRF Token -->
+						{{ form.clientName.label(class="form-label")}} 
+						{{ form.clientName(class="form-control")}}
+						{{ form.auditReportFile.label(class="form-label")}} 
+						{{ form.auditReportFile(class="form-control")}}
+						{{ form.upLoadedBy.label(class="form-label")}} 
+						{{ form.upLoadedBy(class="form-control")}}
+						<br>
+						{{ form.submit(class="btn btn-secondary")}}
+						<!-- To use bootstrap include the classes within the parenthesis of the form field as shown above
+
+						-->
+					</form>
+				</div>
+			
+			<a href="{{url_for('logout')}}">Press here to logout </a>
+		</div>/
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

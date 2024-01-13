@@ -1,3 +1,18 @@
+
+
+Make Sure the Following Applications are Installed and Running:
+
+IPFS client
+
+Ganache
+
+Python 3.11 and Flask
+
+
+
+
+
+
 Step 1
 On your windows search bar, bottom left corner type “cmd” without the quotes and press enter.
 The above command should open the command line prompt (black screen) in your default directory. The default directory (specific to your laptop) should be:
